@@ -38,7 +38,7 @@ public class FelineTest {
     }
 
     @Parameterized.Parameters
-    public static Object[] getKittensTestData() {
+    public static Object[][] getKittensTestData() {
         return new Object[][]{
                 {-1, -1},
                 {0, 0},
