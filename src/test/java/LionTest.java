@@ -5,6 +5,8 @@ import org.junit.Assert;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
+import java.util.List;
+
 @RunWith(Parameterized.class)
 public class LionTest {
 
@@ -39,5 +41,12 @@ public class LionTest {
             expectedBoolean = false;
         }
         Assert.assertEquals("Invalid indicator of mane presence", expectedBoolean, lion.doesHaveMane());
+    }
+
+    @Test
+    public void getFoodLionListOfAnimalsBirdsFish() throws Exception {
+        Lion lion = new Lion(new Feline(), lionSex);
+        List<String> expectedList = List.of("Животные", "Птицы", "Рыба");
+        Assert.assertEquals("Invalid content of the list", expectedList, lion.getFood());
     }
 }
