@@ -11,5 +11,11 @@ public class FelineTest {
         List<String> expectedList = List.of("Животные", "Птицы", "Рыба");
         Assert.assertEquals("Invalid content of the list", expectedList, feline.eatMeat());
     }
-
+    @Test
+    public void getFamilyFelineFeline() {
+        Feline feline = new Feline();
+        String expectedString = "Кошачьи";
+        Assert.assertEquals("Invalid name of the family", expectedString, feline.getFamily());
+    }
+    
 }
