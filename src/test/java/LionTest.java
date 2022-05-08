@@ -28,4 +28,16 @@ public class LionTest {
         int expectedInt = 1;
         Assert.assertEquals("Invalid number of kittens", expectedInt, lion.getKittens());
     }
+
+    @Test
+    public void doesHaveManeTest() throws Exception {
+        Lion lion = new Lion(new Feline(), lionSex);
+        Boolean expectedBoolean;
+        if (lionSex.equals("Самец")) {
+            expectedBoolean = true;
+        } else {
+            expectedBoolean = false;
+        }
+        Assert.assertEquals("Invalid indicator of mane presence", expectedBoolean, lion.doesHaveMane());
+    }
 }
