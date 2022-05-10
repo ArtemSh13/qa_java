@@ -1,4 +1,5 @@
-import com.example.Feline;
+package com.example;
+
 import org.junit.Test;
 import org.junit.Assert;
 import org.junit.runner.RunWith;
