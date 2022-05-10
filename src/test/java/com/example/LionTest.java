@@ -1,14 +1,24 @@
 package com.example;
 
+import org.junit.Rule;
 import org.junit.Test;
 import org.junit.Assert;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.junit.MockitoJUnit;
+import org.mockito.junit.MockitoRule;
 
 import java.util.List;
 
 @RunWith(Parameterized.class)
 public class LionTest {
+    @Rule
+    public MockitoRule rule = MockitoJUnit.rule();
+
+    @Mock
+    Feline felineMock;
 
     private final String lionSex;
 
@@ -26,14 +36,15 @@ public class LionTest {
 
     @Test
     public void getKittensLion1() throws Exception {
-        Lion lion = new Lion(new Feline(), lionSex);
+        Mockito.when(felineMock.getKittens()).thenReturn(1);
+        Lion lion = new Lion(felineMock, lionSex);
         int expectedInt = 1;
         Assert.assertEquals("Invalid number of kittens", expectedInt, lion.getKittens());
     }
 
     @Test
     public void doesHaveManeTest() throws Exception {
-        Lion lion = new Lion(new Feline(), lionSex);
+        Lion lion = new Lion(felineMock, lionSex);
         Boolean expectedBoolean;
         if (lionSex.equals("Самец")) {
             expectedBoolean = true;
@@ -45,7 +56,7 @@ public class LionTest {
 
     @Test
     public void getFoodLionListOfAnimalsBirdsFish() throws Exception {
-        Lion lion = new Lion(new Feline(), lionSex);
+        Lion lion = new Lion(felineMock, lionSex);
         List<String> expectedList = List.of("Животные", "Птицы", "Рыба");
         Assert.assertEquals("Invalid content of the list", expectedList, lion.getFood());
     }
