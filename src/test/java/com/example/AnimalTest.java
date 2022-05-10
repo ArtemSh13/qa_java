@@ -37,7 +37,7 @@ public class AnimalTest {
         Animal animal = new Animal();
         String invalidAnimalKind = "qwerty";
         Exception thrown = Assert.assertThrows(Exception.class, () -> animal.getFood(invalidAnimalKind));
-        Assert.assertEquals("Неизвестный вид животного, используйте значение Травоядное или Хищник",
+        Assert.assertEquals("Invalid exception message", "Неизвестный вид животного, используйте значение Травоядное или Хищник",
                 thrown.getMessage());
     }
 
@@ -45,6 +45,6 @@ public class AnimalTest {
     public void getFamilyAnimalCommonPhrase() {
         Animal animal = new Animal();
         String expectedString = "Существует несколько семейств: заячьи, беличьи, мышиные, кошачьи, псовые, медвежьи, куньи";
-        Assert.assertEquals("Indalid description of animal families", expectedString, animal.getFamily());
+        Assert.assertEquals("Invalid description of animal families", expectedString, animal.getFamily());
     }
 }

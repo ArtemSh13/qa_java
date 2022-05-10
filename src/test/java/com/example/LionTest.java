@@ -54,7 +54,7 @@ public class LionTest {
     public void getExceptionFromLionConstructor() throws Exception {
         String invalidLionSex = "qwerty";
         Exception thrown = Assert.assertThrows(Exception.class, () -> new Lion(new Feline(), invalidLionSex));
-        Assert.assertEquals("Используйте допустимые значения пола животного - самец или самка",
+        Assert.assertEquals("Invalid exception message", "Используйте допустимые значения пола животного - самец или самка",
                 thrown.getMessage());
     }
 }
