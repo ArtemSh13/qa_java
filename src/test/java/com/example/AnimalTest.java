@@ -40,4 +40,11 @@ public class AnimalTest {
         Assert.assertEquals("Неизвестный вид животного, используйте значение Травоядное или Хищник",
                 thrown.getMessage());
     }
+
+    @Test
+    public void getFamilyAnimalCommonPhrase() {
+        Animal animal = new Animal();
+        String expectedString = "Существует несколько семейств: заячьи, беличьи, мышиные, кошачьи, псовые, медвежьи, куньи";
+        Assert.assertEquals("Indalid description of animal families", expectedString, animal.getFamily());
+    }
 }
