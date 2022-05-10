@@ -56,6 +56,7 @@ public class LionTest {
 
     @Test
     public void getFoodLionListOfAnimalsBirdsFish() throws Exception {
+        Mockito.when(felineMock.getFood("Хищник")).thenReturn(List.of("Животные", "Птицы", "Рыба"));
         Lion lion = new Lion(felineMock, lionSex);
         List<String> expectedList = List.of("Животные", "Птицы", "Рыба");
         Assert.assertEquals("Invalid content of the list", expectedList, lion.getFood());
