@@ -49,4 +49,12 @@ public class LionTest {
         List<String> expectedList = List.of("Животные", "Птицы", "Рыба");
         Assert.assertEquals("Invalid content of the list", expectedList, lion.getFood());
     }
+
+    @Test
+    public void getExceptionFromLionConstructor() throws Exception {
+        String invalidLionSex = "qwerty";
+        Exception thrown = Assert.assertThrows(Exception.class, () -> new Lion(new Feline(), invalidLionSex));
+        Assert.assertEquals("Используйте допустимые значения пола животного - самец или самка",
+                thrown.getMessage());
+    }
 }
